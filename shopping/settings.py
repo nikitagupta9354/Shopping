@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import razorpay
 from pathlib import Path
 
 from datetime import timedelta
@@ -182,3 +183,5 @@ CORS_ALLOWED_ORIGINS = [
 STRIPE_TEST_PUBLIC_KEY = 'pk_test_51QB8LGRsaOVoNZ4h3a9QhJxd4DO4wpIogAOkNeeHD70nsQm2Ol4kU5z1wUyqlICCLoAPIc3KHkRjbiYLiep6P1Hn00i3U3hfKf'
 STRIPE_TEST_SECRET_KEY = 'sk_test_51QB8LGRsaOVoNZ4hCyzubvHt64DowU3xX9BAeUjGYMsZJLxnyjRUxfYUozMEVXpXUEmzJEiMWNxt80dsuBo1BeCk00JT3uBCMs'
 
+# Initialize Razorpay client
+client = razorpay.Client(auth=("YOUR_KEY_ID", "YOUR_KEY_SECRET"))
