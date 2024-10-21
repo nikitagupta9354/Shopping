@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import pay,verifyPayment
+from .views import Pay,VerifyPayment
 
 urlpatterns = [
-    path('',pay, name='create-order'),
-    path('verify/',verifyPayment),
+    path('',Pay.as_view(), name='create-order'),
+    path('verify/',VerifyPayment.as_view()),
 ]
