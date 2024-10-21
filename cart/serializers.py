@@ -4,15 +4,10 @@ from product.models import Product
 from user.models import User
 
 
-class CartItemSerializer(serializers.Serializer):
-    product = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all())
-    quantity = serializers.IntegerField()
+class CartItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=CartItem
+        fields = ('product', 'quantity')
     
 
-    def create(self, validated_data):
-        return CartItem.objects.create(**validated_data)
-
-    def update(self, instance, validated_data):
-        instance.quantity = validated_data.get('quantity', instance.quantity)
-        instance.save()
-        return instance
+    
